@@ -10,8 +10,10 @@ class Banana(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if "BACLE" in message.content.upper():
-            await message.add_reaction("<:bacle:1214520769011388436>")
+            emoji_id = 1214520769011388436
+            custom_emoji = f"<:bacle:{emoji_id}>"
+            await message.add_reaction(custom_emoji)
 
 
-async def setup(bot):
-    await bot.add_cog(Banana(bot))
+def setup(bot):
+    bot.add_cog(Banana(bot))
