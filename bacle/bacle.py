@@ -13,5 +13,5 @@ class Bacle(commands.Cog):
             custom_emoji = f"<:bacle:{emoji_id}>"
             await message.add_reaction(custom_emoji)
 
-def setup(bot):
+async def setup(bot):
     bot.add_cog(Bacle(bot))
