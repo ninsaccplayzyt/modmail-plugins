@@ -2,7 +2,7 @@ from discord.ext import commands
 
 
 class Banana(commands.Cog):
-    """Reacts with a banana emoji if someone says banana."""
+    """Reacts with the bacle emoji if someone says bacle."""
 
     def __init__(self, bot):
         self.bot = bot
