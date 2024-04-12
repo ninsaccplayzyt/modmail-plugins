@@ -1,17 +1,20 @@
 from discord.ext import commands
 
-class Bacle(commands.Cog):
-    """Reacts with a bacle emoji if someone says bacle."""
+
+class ReactOnPing(commands.Cog):
+    """Reacts with a ping emoji when someone gets pinged."""
+
+    emojis = ["<:bacle:1214520769011388436>"]
 
     def __init__(self, bot):
         self.bot = bot
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if "BACLE" in message.content.upper():
-            emoji_id = 1214520769011388436
-            custom_emoji = f"<:bacle:{emoji_id}>"
-            await message.add_reaction(custom_emoji)
+        if len(message.mentions):
+            for emoji in self.emojis:
+                await message.add_reaction(emoji)
+
 
 async def setup(bot):
-    bot.add_cog(Bacle(bot))
+    await bot.add_cog(ReactOnPing(bot))
